@@ -19,11 +19,12 @@ export function useRevealOnIntersect<T extends HTMLElement>() {
             return;
           }
 
-          const animationType = entry.target.dataset.scrollAnimate;
-          entry.target.classList.add(
+          const targetNode = entry.target as HTMLElement;
+          const animationType = targetNode.dataset.scrollAnimate;
+          targetNode.classList.add(
             animationType === "rise" ? "scroll-rise-in" : "wave-in",
           );
-          activeObserver.unobserve(entry.target);
+          activeObserver.unobserve(targetNode);
         });
       },
       {
