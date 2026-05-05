@@ -1,0 +1,42 @@
+# Netlify branch deploy URLs need a Git branch per version. Tags remain the
+# canonical release refs; branches deploy/v* are mirrors updated from tags.
+name: Sync semver tags to deploy branches
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-deploy-branches
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Push deploy/<tag> branches from semver tags
+        env:
+          TAG_PATTERN: 'v[0-9]*.[0-9]*.[0-9]*'
+        run: |
+          set -euo pipefail
+          git fetch --tags --force
+          tags="$(git tag -l "$TAG_PATTERN" | sort -V)"
+          if [ -z "${tags}" ]; then
+            echo "No tags matched $TAG_PATTERN"; exit 0
+          fi
+          while IFS= read -r tag; do
+            [ -z "$tag" ] && continue
+            sha="$(git rev-parse "${tag}^{commit}")"
+            echo "Mirroring tag ${tag} (${sha}) -> deploy/${tag}"
+            git push origin "${sha}:refs/heads/deploy/${tag}" --force
+          done <<< "$tags"
