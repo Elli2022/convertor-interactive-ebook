@@ -1,5 +1,11 @@
 # Netlify branch deploy URLs need a Git branch per version. Tags remain the
 # canonical release refs; branches deploy/v* are mirrors updated from tags.
+#
+# One-time Netlify UI (API did not persist branch allowlists here): open site
+# testconvertorebook → Project configuration → Build & deploy → Continuous
+# Deployment → Branch deploys → Configure → add pattern deploy/* (prod branch
+# stays main). Then pushes to deploy/v* trigger builds like
+# https://deploy-vX-Y-Z--testconvertorebook.netlify.app
 name: Sync semver tags to deploy branches
 
 on:
