@@ -62,3 +62,32 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
+
+.reveal-text-prep {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-rise-prep {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text-prep,
+  .reveal-rise-prep {
+    opacity: 1;
+    transform: none;
+  }
+
+  .wave-in,
+  .scroll-rise-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

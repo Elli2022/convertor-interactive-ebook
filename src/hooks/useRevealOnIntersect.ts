@@ -1,5 +1,22 @@
 import { useEffect, useRef } from "react";
 
+const PREP_TEXT = "reveal-text-prep";
+const PREP_RISE = "reveal-rise-prep";
+
+function prepClassFor(el: HTMLElement): string | null {
+  if (el.dataset.scrollAnimate === "rise") {
+    return PREP_RISE;
+  }
+  if (el.matches("h1, p, p > span")) {
+    return PREP_TEXT;
+  }
+  return null;
+}
+
+function animateClassFor(el: HTMLElement): "scroll-rise-in" | "wave-in" {
+  return el.dataset.scrollAnimate === "rise" ? "scroll-rise-in" : "wave-in";
+}
+
 export function useRevealOnIntersect<T extends HTMLElement>() {
   const containerRef = useRef<T>(null);
 
@@ -12,19 +29,35 @@ export function useRevealOnIntersect<T extends HTMLElement>() {
     const nodes = rootNode.querySelectorAll<HTMLElement>(
       "h1, p, p > span, [data-scroll-animate]",
     );
+
+    nodes.forEach((node) => {
+      const prep = prepClassFor(node);
+      if (prep) {
+        node.classList.add(prep);
+      }
+    });
+
     const observer = new IntersectionObserver(
-      (entries, activeObserver) => {
+      (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
+          const targetNode = entry.target as HTMLElement;
+          const prep = prepClassFor(targetNode);
+          const animateClass = animateClassFor(targetNode);
+
+          if (entry.isIntersecting) {
+            if (prep) {
+              targetNode.classList.remove(prep);
+            }
+            targetNode.classList.remove("wave-in", "scroll-rise-in");
+            void targetNode.offsetWidth;
+            targetNode.classList.add(animateClass);
             return;
           }
 
-          const targetNode = entry.target as HTMLElement;
-          const animationType = targetNode.dataset.scrollAnimate;
-          targetNode.classList.add(
-            animationType === "rise" ? "scroll-rise-in" : "wave-in",
-          );
-          activeObserver.unobserve(targetNode);
+          targetNode.classList.remove("wave-in", "scroll-rise-in");
+          if (prep) {
+            targetNode.classList.add(prep);
+          }
         });
       },
       {
