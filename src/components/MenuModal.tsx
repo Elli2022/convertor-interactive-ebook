@@ -40,7 +40,7 @@ const MenuModal = ({
                 href="https://convertor.se/"
                 className="text-white font-font-medium text-sm leading-loose w-full text-center py-2 "
               >
-                TJÄNSTER
+                START
               </a>
             </li>
             <li className="menu-item mb-3">
@@ -49,30 +49,6 @@ const MenuModal = ({
                 className="text-white font-medium text-sm leading-loose w-full text-center py-2"
               >
                 CASE
-              </a>
-            </li>
-            <li className="menu-item mb-3">
-              <a
-                href="https://convertor.se/greenhouse/"
-                className="text-white font-medium text-sm leading-loose w-full text-center py-2"
-              >
-                GREENHOUSE
-              </a>
-            </li>
-            <li className="menu-item mb-3">
-              <a
-                href="https://convertor.se/insikt/"
-                className="text-white font-medium text-sm leading-loose w-full text-center py-2"
-              >
-                INSIKT
-              </a>
-            </li>
-            <li className="menu-item mb-3">
-              <a
-                href="https://convertor.se/karriar/"
-                className="text-white font-medium text-sm leading-loose w-full text-center py-2"
-              >
-                KARRIÄR
               </a>
             </li>
             <li className="menu-item mb-3">

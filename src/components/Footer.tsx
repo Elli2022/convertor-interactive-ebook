@@ -11,39 +11,11 @@ const Footer = () => {
         }}
       >
         <a
-          href="https://convertor.se/tjanster/"
-          className="hover:underline"
-          style={{ color: "white", wordWrap: "break-word" }}
-        >
-          Tjänster
-        </a>
-        <a
           href="https://convertor.se/kundcase/"
           className="hover:underline"
           style={{ color: "white", wordWrap: "break-word" }}
         >
           Case
-        </a>
-        <a
-          href="https://convertor.se/greenhouse/"
-          className="hover:underline"
-          style={{ color: "white", wordWrap: "break-word" }}
-        >
-          Greenhouse
-        </a>
-        <a
-          href="https://convertor.se/insikt/"
-          className="hover:underline"
-          style={{ color: "white", wordWrap: "break-word" }}
-        >
-          Insikt
-        </a>
-        <a
-          href="https://convertor.se/karriar/"
-          className="hover:underline"
-          style={{ color: "white", wordWrap: "break-word" }}
-        >
-          Karriär
         </a>
         <a
           href="https://convertor.se/kontakt/"

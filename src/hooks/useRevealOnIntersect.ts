@@ -9,7 +9,9 @@ export function useRevealOnIntersect<T extends HTMLElement>() {
       return;
     }
 
-    const nodes = rootNode.querySelectorAll("h1, p, p > span");
+    const nodes = rootNode.querySelectorAll<HTMLElement>(
+      "h1, p, p > span, [data-scroll-animate]",
+    );
     const observer = new IntersectionObserver(
       (entries, activeObserver) => {
         entries.forEach((entry) => {
@@ -17,7 +19,10 @@ export function useRevealOnIntersect<T extends HTMLElement>() {
             return;
           }
 
-          entry.target.classList.add("wave-in");
+          const animationType = entry.target.dataset.scrollAnimate;
+          entry.target.classList.add(
+            animationType === "rise" ? "scroll-rise-in" : "wave-in",
+          );
           activeObserver.unobserve(entry.target);
         });
       },

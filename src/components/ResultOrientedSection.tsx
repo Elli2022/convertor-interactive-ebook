@@ -15,6 +15,7 @@ const ResultOrientedSection: React.FC = () => {
       />
 
       <div
+        data-scroll-animate="rise"
         className="flex w-full justify-center lg:w-1/2 lg:justify-end"
         style={{ maxWidth: "503px" }}
       >

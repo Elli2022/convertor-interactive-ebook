@@ -61,31 +61,13 @@ const Navbar = () => {
           href="https://convertor.se/"
           className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
         >
-          TJÄNSTER
+          START
         </a>
         <a
           href="https://convertor.se/kundcase/"
           className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
         >
           CASE
-        </a>
-        <a
-          href="https://convertor.se/greenhouse/"
-          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
-        >
-          GREENHOUSE
-        </a>
-        <a
-          href="https://convertor.se/insikt/"
-          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
-        >
-          INSIKT
-        </a>
-        <a
-          href="https://convertor.se/karriar/"
-          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
-        >
-          KARRIÄR
         </a>
         <a
           href="https://convertor.se/kontakt/"

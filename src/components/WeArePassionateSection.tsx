@@ -10,6 +10,7 @@ const WeArePassionateSection: React.FC = () => {
   return (
     <section className="text-center w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-center bg-[#15253E] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24">
       <div
+        data-scroll-animate="rise"
         className="group flex w-full justify-center lg:order-2 lg:w-1/2 lg:justify-end lg:pl-14"
         style={{ maxWidth: "503px" }}
       >

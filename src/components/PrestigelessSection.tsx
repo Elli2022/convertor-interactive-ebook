@@ -14,7 +14,10 @@ const PrestigelessSection: React.FC = () => {
         style={{ transform: "translate(25%, -50%)" }}
       />
 
-      <div className="z-10 mx-auto w-full max-w-4xl md:order-last">
+      <div
+        data-scroll-animate="rise"
+        className="z-10 mx-auto w-full max-w-4xl md:order-last"
+      >
         <Image
           src="/images/imageConvertor2.png"
           alt="Convertor-team i workshop"
