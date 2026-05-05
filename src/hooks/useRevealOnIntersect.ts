@@ -7,7 +7,7 @@ function prepClassFor(el: HTMLElement): string | null {
   if (el.dataset.scrollAnimate === "rise") {
     return PREP_RISE;
   }
-  if (el.matches("h1, p, p > span")) {
+  if (el.matches("h1, p")) {
     return PREP_TEXT;
   }
   return null;
@@ -26,52 +26,70 @@ export function useRevealOnIntersect<T extends HTMLElement>() {
       return;
     }
 
-    const nodes = rootNode.querySelectorAll<HTMLElement>(
-      "h1, p, p > span, [data-scroll-animate]",
+    const revealNodes = Array.from(
+      rootNode.querySelectorAll<HTMLElement>("h1, p, [data-scroll-animate]"),
     );
 
-    nodes.forEach((node) => {
+    revealNodes.forEach((node, index) => {
+      node.style.setProperty("--reveal-delay", `${index * 72}ms`);
       const prep = prepClassFor(node);
       if (prep) {
         node.classList.add(prep);
       }
     });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const targetNode = entry.target as HTMLElement;
-          const prep = prepClassFor(targetNode);
-          const animateClass = animateClassFor(targetNode);
-
-          if (entry.isIntersecting) {
-            if (prep) {
-              targetNode.classList.remove(prep);
-            }
-            targetNode.classList.remove("wave-in", "scroll-rise-in");
-            void targetNode.offsetWidth;
-            targetNode.classList.add(animateClass);
-            return;
-          }
-
-          targetNode.classList.remove("wave-in", "scroll-rise-in");
-          if (prep) {
-            targetNode.classList.add(prep);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -8% 0px",
-        threshold: 0.18,
-      },
+    const accentNodes = Array.from(
+      rootNode.querySelectorAll<HTMLElement>("[data-accent-line]"),
     );
 
-    nodes.forEach((node) => observer.observe(node));
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.18,
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const targetNode = entry.target as HTMLElement;
+        const prep = prepClassFor(targetNode);
+        const animateClass = animateClassFor(targetNode);
+
+        if (entry.isIntersecting) {
+          if (prep) {
+            targetNode.classList.remove(prep);
+          }
+          targetNode.classList.remove("wave-in", "scroll-rise-in");
+          void targetNode.offsetWidth;
+          targetNode.classList.add(animateClass);
+          return;
+        }
+
+        targetNode.classList.remove("wave-in", "scroll-rise-in");
+        if (prep) {
+          targetNode.classList.add(prep);
+        }
+      });
+    }, observerOptions);
+
+    const accentObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const targetNode = entry.target as HTMLElement;
+        if (entry.isIntersecting) {
+          targetNode.classList.add("accent-line-active");
+          return;
+        }
+        targetNode.classList.remove("accent-line-active");
+      });
+    }, observerOptions);
+
+    revealNodes.forEach((node) => revealObserver.observe(node));
+    accentNodes.forEach((node) => accentObserver.observe(node));
 
     return () => {
-      nodes.forEach((node) => observer.unobserve(node));
-      observer.disconnect();
+      revealNodes.forEach((node) => revealObserver.unobserve(node));
+      accentNodes.forEach((node) => accentObserver.unobserve(node));
+      revealObserver.disconnect();
+      accentObserver.disconnect();
     };
   }, []);
 

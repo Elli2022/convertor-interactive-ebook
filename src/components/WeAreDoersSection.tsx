@@ -1,27 +1,31 @@
 "use client";
 
+import { useParallaxY } from "@/hooks/useParallaxY";
 import { useRevealOnIntersect } from "@/hooks/useRevealOnIntersect";
 
 const WeAreDoersSection: React.FC = () => {
-  const textContainerRef = useRevealOnIntersect<HTMLDivElement>();
+  const sectionRevealRef = useRevealOnIntersect<HTMLElement>();
+  const doersBlobRef = useParallaxY(18);
 
   return (
     <>
-      <section className="text-center w-full relative overflow-hidden flex items-center justify-center bg-[#15253E] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24">
+      <section
+        ref={sectionRevealRef}
+        className="text-center w-full relative overflow-hidden flex items-center justify-center bg-[#15253E] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24"
+      >
         <div
-          className="absolute left-1/2 top-1/3 w-32 h-32 bg-[#32ABBC] rounded-full z-0"
-          style={{
-            transform: "translate(-50%, -50%)",
-          }}
+          ref={doersBlobRef}
+          className="parallax-blob-doers absolute left-1/2 top-1/3 z-0 h-32 w-32 rounded-full bg-[#32ABBC]"
         />
 
-        <div
-          ref={textContainerRef}
-          className="z-10 mx-auto mt-[116px] max-w-4xl px-4 max-[480px]:mt-[153px] lg:mt-[76px]"
-        >
+        <div className="z-10 mx-auto mt-[116px] max-w-4xl px-4 max-[480px]:mt-[153px] lg:mt-[76px]">
           <h1 className="font-century-gothic-pro text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Med andra ord: <br />
-            vi är <span className="text-[#33ABBD]">doers.</span>
+            vi är{" "}
+            <span className="relative inline-block pb-[0.14em]" data-accent-line>
+              <span className="text-[#33ABBD]">doers.</span>
+              <span className="accent-line" aria-hidden />
+            </span>
           </h1>
           <p className="section-copy mt-4 max-w-4xl text-left text-base font-extralight text-white md:text-lg lg:text-xl">
             Vi pratar inte. Vi gör. Vi levererar och vi får folk att se nya

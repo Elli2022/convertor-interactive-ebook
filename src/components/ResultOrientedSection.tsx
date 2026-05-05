@@ -2,16 +2,21 @@
 
 import Image from "next/image";
 
+import { useParallaxY } from "@/hooks/useParallaxY";
 import { useRevealOnIntersect } from "@/hooks/useRevealOnIntersect";
 
 const ResultOrientedSection: React.FC = () => {
-  const textContainerRef = useRevealOnIntersect<HTMLDivElement>();
+  const sectionRevealRef = useRevealOnIntersect<HTMLElement>();
+  const resultBlobRef = useParallaxY(30);
 
   return (
-    <section className="text-center w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-center bg-[#D3E0E5] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24 group">
+    <section
+      ref={sectionRevealRef}
+      className="text-center w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-center bg-[#D3E0E5] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24 group"
+    >
       <div
-        className="absolute bottom-0 left-0 h-[65vw] w-[65vw] rounded-full bg-white md:h-[25vw] md:w-[25vw]"
-        style={{ transform: "translateX(-60%)" }}
+        ref={resultBlobRef}
+        className="parallax-blob-result absolute bottom-0 left-0 h-[65vw] w-[65vw] rounded-full bg-white md:h-[25vw] md:w-[25vw]"
       />
 
       <div
@@ -29,12 +34,13 @@ const ResultOrientedSection: React.FC = () => {
         />
       </div>
 
-      <div
-        ref={textContainerRef}
-        className="z-10 flex w-full flex-col justify-center text-left lg:ml-14 lg:w-1/2"
-      >
+      <div className="z-10 flex w-full flex-col justify-center text-left lg:ml-14 lg:w-1/2">
         <h1 className="mt-6 font-century-gothic-pro text-3xl font-bold leading-tight text-black sm:text-4xl md:text-5xl lg:mt-0 lg:text-6xl">
-          Vi är <span className="text-[#33ABBD]">resultatdrivna</span>
+          Vi är{" "}
+          <span className="relative inline-block pb-[0.14em]" data-accent-line>
+            <span className="text-[#33ABBD]">resultatdrivna</span>
+            <span className="accent-line" aria-hidden />
+          </span>
         </h1>
         <p className="section-copy mt-4 text-base font-extralight text-black md:text-lg lg:text-xl">
           På Convertor gör vi skillnad, på riktigt. Vi lockar inte med tomma

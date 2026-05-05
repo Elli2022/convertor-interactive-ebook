@@ -37,6 +37,7 @@ body {
 .wave-in {
   opacity: 0;
   animation: wave-animation 0.8s ease forwards;
+  animation-delay: var(--reveal-delay, 0ms);
 }
 
 .wave-in-view {
@@ -56,6 +57,41 @@ body {
 
 .scroll-rise-in {
   animation: scroll-rise-animation 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.parallax-blob-prestige {
+  transform: translate(25%, calc(-50% + var(--parallax-y, 0px)));
+}
+
+.parallax-blob-result {
+  transform: translateX(-60%) translateY(var(--parallax-y, 0px));
+}
+
+.parallax-blob-doers {
+  transform: translate(-50%, calc(-50% + var(--parallax-y, 0px)));
+}
+
+[data-accent-line] {
+  position: relative;
+}
+
+[data-accent-line] .accent-line {
+  position: absolute;
+  left: 0;
+  bottom: 0.08em;
+  height: 0.11em;
+  min-height: 2px;
+  width: 100%;
+  border-radius: 999px;
+  background-color: #33abbd;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-accent-line].accent-line-active .accent-line {
+  transform: scaleX(1);
 }
 
 .section-copy {
@@ -85,6 +121,11 @@ body {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  [data-accent-line] .accent-line {
+    transform: scaleX(1);
+    transition: none;
   }
 
   html {

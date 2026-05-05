@@ -5,10 +5,13 @@ import Image from "next/image";
 import { useRevealOnIntersect } from "@/hooks/useRevealOnIntersect";
 
 const WeArePassionateSection: React.FC = () => {
-  const textContainerRef = useRevealOnIntersect<HTMLDivElement>();
+  const sectionRevealRef = useRevealOnIntersect<HTMLElement>();
 
   return (
-    <section className="text-center w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-center bg-[#15253E] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24">
+    <section
+      ref={sectionRevealRef}
+      className="text-center w-full relative overflow-hidden flex flex-col lg:flex-row items-center justify-center bg-[#15253E] px-8 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 lg:px-20 lg:py-24"
+    >
       <div
         data-scroll-animate="rise"
         className="group flex w-full justify-center lg:order-2 lg:w-1/2 lg:justify-end lg:pl-14"
@@ -24,12 +27,13 @@ const WeArePassionateSection: React.FC = () => {
         />
       </div>
 
-      <div
-        ref={textContainerRef}
-        className="w-full lg:order-1 lg:w-1/2 lg:text-left"
-      >
+      <div className="w-full lg:order-1 lg:w-1/2 lg:text-left">
         <h1 className="mt-6 font-century-gothic-pro text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:mt-0 lg:text-6xl">
-          Vi är <span className="text-[#33ABBD]">passionerade</span>
+          Vi är{" "}
+          <span className="relative inline-block pb-[0.14em]" data-accent-line>
+            <span className="text-[#33ABBD]">passionerade</span>
+            <span className="accent-line" aria-hidden />
+          </span>
         </h1>
         <p className="section-copy mt-4 text-left text-base font-extralight text-white md:text-lg lg:text-xl">
           Vi är passionerade – det ligger i vårt DNA.
