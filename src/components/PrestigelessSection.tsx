@@ -29,7 +29,7 @@ const PrestigelessSection: React.FC = () => {
           width={2865}
           height={1046}
           sizes="(min-width: 1280px) 896px, 100vw"
-          className="h-auto w-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-[1.03]"
+          className="h-auto w-full object-contain transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]"
         />
       </div>
 

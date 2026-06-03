@@ -1,3 +1,5 @@
+"use client";
+
 const MenuModal = ({
   isOpen,
   onClose,
@@ -9,8 +11,11 @@ const MenuModal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#14243DE6]/30 p-5"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#14243D]/30 p-5 backdrop-blur-[2px] transition-opacity duration-300 ease-out"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobilmeny"
     >
       <button
         className="absolute right-5 top-1 z-10 text-white"

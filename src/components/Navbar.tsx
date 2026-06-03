@@ -59,19 +59,19 @@ const Navbar = () => {
       <div className="hidden items-center space-x-4 lg:flex lg:flex-grow lg:justify-end">
         <a
           href="https://convertor.se/"
-          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
+          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors duration-300 ease-out hover:text-[#33ABBD]"
         >
           START
         </a>
         <a
           href="https://convertor.se/kundcase/"
-          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
+          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors duration-300 ease-out hover:text-[#33ABBD]"
         >
           CASE
         </a>
         <a
           href="https://convertor.se/kontakt/"
-          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors hover:text-[#33ABBD]"
+          className="px-3 py-2 text-xs font-bold uppercase leading-tight text-custom-blue transition-colors duration-300 ease-out hover:text-[#33ABBD]"
         >
           KONTAKT
         </a>

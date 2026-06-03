@@ -20,6 +20,7 @@ export function useParallaxY(maxPx = 22) {
     }
 
     let frameId = 0;
+    let currentY = 0;
 
     const update = () => {
       frameId = 0;
@@ -28,8 +29,9 @@ export function useParallaxY(maxPx = 22) {
       const ratio =
         (rect.top + rect.height / 2 - vh * 0.5) / Math.max(vh * 0.65, 1);
       const clamped = Math.max(-1, Math.min(1, ratio));
-      const y = clamped * maxPx;
-      node.style.setProperty("--parallax-y", `${y}px`);
+      const targetY = clamped * maxPx;
+      currentY += (targetY - currentY) * 0.1;
+      node.style.setProperty("--parallax-y", `${currentY.toFixed(2)}px`);
     };
 
     const schedule = () => {

@@ -30,7 +30,7 @@ const ResultOrientedSection: React.FC = () => {
           width={2877}
           height={1920}
           sizes="(min-width: 1024px) 503px, 100vw"
-          className="z-10 h-auto w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 lg:h-[503px] lg:w-[503px]"
+          className="z-10 h-auto w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] lg:h-[503px] lg:w-[503px]"
         />
       </div>
 

@@ -1,82 +1,104 @@
-# Convertor
+# Convertor Interactive E-Book
 
-Interaktiv presentationssida byggd i Next.js för Convertor. Projektet bevarar den ursprungliga visuella identiteten med samma färgpalett, samma berättande sektioner och samma scrollidé i heron, men i en modernare och mer stabil kodbas.
+Scroll-driven brand story microsite for **[Convertor Svenska AB](https://convertor.se/)** (Malmö), built during a **frontend internship (February–May 2024)**. The experience keeps the original agency palette and narrative sections while running on a modernized **Next.js** stack with smoother motion and stable touch/scroll hero interaction.
 
-## Vad projektet innehåller
+![Hero — desktop](./docs/screenshots/hero-desktop.png)
 
-- En single-page upplevelse med sektionerna `Välkommen till`, `Vi är passionerade`, `Vi är prestigelösa`, `Vi är resultatdrivna` och `Vi är doers`.
-- En hero-sektion där den turkosa ellipsen reagerar på scroll och touch.
-- Responsiv navigation och mobil meny.
-- Bildoptimering via `next/image`.
+## Live site
 
-## Teknik
+- **Production:** [convertor-e-book.netlify.app](https://convertor-e-book.netlify.app/)
 
-- Next.js 15
+## Topics
+
+`nextjs` · `react` · `typescript` · `tailwindcss` · `netlify` · `scroll-animation` · `brand-microsite` · `internship-project` · `convertor` · `single-page-application`
+
+## Project overview
+
+A single-page editorial site with five narrative beats:
+
+| Section | Theme |
+| --- | --- |
+| Welcome | Scroll-scaled hero ellipse + headline |
+| Passionate | Team culture + photography |
+| Prestigeless | Values + workshop imagery |
+| Results-driven | Measurable outcomes |
+| Doers | Closing statement |
+
+Navigation and footer link to the real agency site ([convertor.se](https://convertor.se/)), customer cases, contact, and social profiles (Facebook, LinkedIn, Instagram).
+
+![Full page — desktop](./docs/screenshots/full-page-desktop.png)
+
+## Internship context
+
+| | |
+| --- | --- |
+| **Organization** | [Convertor Svenska AB](https://convertor.se/) |
+| **Period** | February – May 2024 |
+| **Role** | Frontend internship — interactive landing / e-book presentation |
+| **Focus** | Brand storytelling, scroll UX, responsive layout, client-ready polish |
+
+## What this demonstrates
+
+- Translating an agency brand guide into a web-native reading flow
+- Custom scroll + touch hero without heavy animation libraries
+- Intersection-based reveals, accent underlines, and subtle parallax blobs
+- Accessible patterns (`prefers-reduced-motion`, semantic landmarks, external links)
+- Continuous deployment on Netlify from `main`
+
+## Tech stack
+
+- Next.js 15 (App Router)
 - React 19
 - TypeScript
 - Tailwind CSS 3
 
-## Lokal körning
-
-Installera beroenden:
+## Local development
 
 ```bash
 npm install
-```
-
-Starta utvecklingsläge:
-
-```bash
 npm run dev
 ```
 
-Bygg produktionsversion:
+Open [http://localhost:3000](http://localhost:3000).
+
+## Production build
 
 ```bash
 npm run build
+npm run start
 ```
 
-Kör lint:
+## Netlify deployment
 
-```bash
-npm run lint
-```
+Configured via [`netlify.toml`](./netlify.toml) with `@netlify/plugin-nextjs`.
 
-## Versionsstrategi
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Production branch | `main` |
+| Plugin | `@netlify/plugin-nextjs` |
 
-Repo:t bör använda:
+Historical semver tags are mirrored to `deploy/v*` branches (see [`.github/workflows/sync-deploy-branches.yml`](./.github/workflows/sync-deploy-branches.yml)) for optional branch deploy previews.
 
-- `main` för den aktuella produktionen
-- tags för historiska versionspunkter
-- ett litet antal `release/*`-grenar bara för de versioner som också ska ha egna Netlify branch deploys
+## Version history
 
-Det här följer bättre praxis än att låta varje experiment eller deploy leva kvar som en separat långlivad branch.
+| Tag | Notes |
+| --- | --- |
+| `v0.1.0` | Initial build (March 2024) |
+| `v0.2.0` – `v0.5.0` | Scroll, mobile, and touch iterations (April 2024) |
+| `v1.0.0` | Modernized stack, shared reveal hooks, Netlify workflow |
 
-## Rekommenderade historiska milstolpar
+## Screenshots
 
-De viktigaste versionspunkterna i den äldre deploykedjan kan representeras så här:
+| View | |
+| --- | --- |
+| Desktop hero | ![](./docs/screenshots/hero-desktop.png) |
+| Mobile hero | ![](./docs/screenshots/hero-mobile.png) |
 
-- `v0.1.0` – grundversionen före scrollspåret
-- `v0.2.0` – första tydliga scrollförbättringen från 24 april 2024
-- `v0.3.0` – mobile-first-steg från 25 april 2024
-- `v0.4.0` – touchscroll stabiliserad den 27 april 2024
-- `v0.5.0` – sista historiska deploylinjen från 28 april 2024
-- `v1.0.0` – moderniserad huvudversion
+## Repository naming
 
-## Netlify-upplägg
+Canonical repo: **`convertor-interactive-ebook`** (formerly `ebook-converter-app` / `convertor-e-book`). The name reflects an interactive brand e-book microsite rather than a file-format converter.
 
-För ett rent och hållbart upplägg på Netlify rekommenderas:
+## License
 
-- `main` som production branch med automatisk deploy till huvud-URL:en
-- `release/v0.2`, `release/v0.3`, `release/v0.4` och `release/v0.5` som branch deploys för äldre publika versionslänkar
-- Deploy previews för framtida förbättringar via pull requests
-
-Det ger en huvuddeploy som alltid uppdateras automatiskt, samtidigt som du kan behålla ett litet antal tydliga historiska versionsdeployer under samma Netlify-site.
-
-## Förbättringar i den moderniserade versionen
-
-- Mer stabil scroll- och touchlogik i hero-sektionen
-- Bättre metadata och svensk språkkonfiguration
-- Bättre bildhantering och prestanda genom `next/image`
-- Städade beroenden och modernare lint-skript
-- Gemensam reveal-logik för innehållssektionerna
+Internship deliverable for Convertor Svenska AB. Agency assets and copy remain their property.

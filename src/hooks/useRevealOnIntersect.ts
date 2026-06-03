@@ -31,7 +31,7 @@ export function useRevealOnIntersect<T extends HTMLElement>() {
     );
 
     revealNodes.forEach((node, index) => {
-      node.style.setProperty("--reveal-delay", `${index * 72}ms`);
+      node.style.setProperty("--reveal-delay", `${index * 58}ms`);
       const prep = prepClassFor(node);
       if (prep) {
         node.classList.add(prep);

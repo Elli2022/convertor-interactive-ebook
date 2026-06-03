@@ -103,8 +103,18 @@ const Footer = () => {
               </a>
             </div>
           <div>
+            <p className="mb-4 text-center text-[12px] font-light text-[rgba(255,255,255,0.55)] lg:text-right">
+              Internship showcase ·{" "}
+              <a
+                href="https://convertor.se/"
+                className="underline decoration-[rgba(255,255,255,0.35)] underline-offset-2 transition-colors hover:text-white"
+              >
+                Convertor Svenska AB
+              </a>{" "}
+              · Feb–May 2024
+            </p>
             <p className="lg:order-2 lg:flex-grow text-[13px] sm:text-[15px] lg:text-[16px] font-light text-[rgba(255,255,255,0.5)] lg:text-right lg:ml-4">
-              Alla rättigheter reserverade © 2023 {" | "}
+              Alla rättigheter reserverade © 2024 {" | "}
               <span className="mx-1">Läs vår</span>
               <a
                 href="https://convertor.se/integritetspolicy/"

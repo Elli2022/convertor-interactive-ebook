@@ -153,7 +153,7 @@ const WelcomeSection: React.FC = () => {
         className="absolute left-1/2 top-1/2 z-0 h-32 w-32 rounded-full bg-[#32ABBC] sm:h-36 sm:w-36"
         style={{
           transform: `translate(-50%, -50%) scale(${scale})`,
-          transition: "transform 180ms ease-out",
+          transition: "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
           willChange: "transform",
         }}
       />
@@ -169,7 +169,7 @@ const WelcomeSection: React.FC = () => {
           className="font-century-gothic-pro text-lg font-bold md:text-xl lg:text-3xl"
           style={{
             color: highlightColor,
-            transition: "color 160ms ease-out",
+            transition: "color 320ms cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         >
           <span className="text-black">prestigelösa och </span>

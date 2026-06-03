@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Convertor",
+  title: "Convertor — Interactive Brand E-Book",
   description:
-    "Interaktiv presentationssida för Convertor med fokus på passion, prestigelöshet och resultat.",
+    "Scroll-driven brand story microsite for Convertor AB: passion, prestige-free culture, and results-driven delivery. Built during a frontend internship (2024).",
+  openGraph: {
+    title: "Convertor — Interactive Brand E-Book",
+    description:
+      "Interactive single-page brand narrative for Convertor AB, Malmö.",
+    locale: "sv_SE",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
