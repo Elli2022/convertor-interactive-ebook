@@ -188,7 +188,7 @@ const WelcomeSection: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative flex w-full items-center justify-center overflow-hidden text-center"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden text-center"
       style={{
         background: "#D3E0E5",
         minHeight: isMobile
@@ -201,17 +201,15 @@ const WelcomeSection: React.FC = () => {
       <div
         className="pointer-events-none absolute left-1/2 z-0 h-24 w-24 rounded-full bg-[#32ABBC] sm:h-32 sm:w-32 md:top-1/2 md:h-36 md:w-36"
         style={{
-          top: isMobile ? "58%" : undefined,
-          transform: isMobile
-            ? `translate(-50%, -50%) scale(${scale})`
-            : `translate(-50%, -50%) scale(${scale})`,
+          top: isMobile ? "52%" : undefined,
+          transform: `translate(-50%, -50%) scale(${scale})`,
           transition: "transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
           willChange: "transform",
         }}
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-5 pb-10 pt-6 sm:px-6 md:px-4 md:py-0">
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-5 pb-12 pt-6 sm:px-6 md:px-4 md:py-0">
         <h1 className="font-century-gothic-pro text-3xl font-bold leading-tight text-black sm:text-5xl md:text-6xl lg:text-7xl">
           Välkommen till
         </h1>
@@ -231,12 +229,13 @@ const WelcomeSection: React.FC = () => {
           </span>
         </div>
 
-        {isMobile && !scrollComplete && !prefersReducedMotion && (
-          <p className="mt-8 text-xs font-medium tracking-wide text-[#14243D]/55">
-            Svep uppåt för att fortsätta
-          </p>
-        )}
       </div>
+
+      {isMobile && !scrollComplete && !prefersReducedMotion && (
+        <p className="relative z-20 mt-auto px-5 pb-8 text-center text-sm font-semibold tracking-wide text-[#14243D]">
+          Svep uppåt för att fortsätta
+        </p>
+      )}
     </section>
   );
 };

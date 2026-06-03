@@ -2,9 +2,13 @@
 
 Scroll-driven brand story microsite for **[Convertor Svenska AB](https://convertor.se/)** (Malmö), built during a **frontend internship (February–May 2024)**. The experience keeps the original agency palette and narrative sections while running on a modernized **Next.js** stack with smoother motion and stable touch/scroll hero interaction.
 
-| Desktop (1440px) | Mobile (390px) |
-| --- | --- |
-| ![Hero — desktop](./docs/screenshots/hero-desktop.png) | ![Hero — mobile](./docs/screenshots/hero-mobile.png) |
+### Desktop (1440px)
+
+![Hero — desktop](./docs/screenshots/hero-desktop.png)
+
+### Mobile (390px)
+
+![Hero — mobile](./docs/screenshots/hero-mobile.png)
 
 ## Live site
 
