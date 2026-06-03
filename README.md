@@ -2,7 +2,9 @@
 
 Scroll-driven brand story microsite for **[Convertor Svenska AB](https://convertor.se/)** (Malmö), built during a **frontend internship (February–May 2024)**. The experience keeps the original agency palette and narrative sections while running on a modernized **Next.js** stack with smoother motion and stable touch/scroll hero interaction.
 
-![Hero — desktop](./docs/screenshots/hero-desktop.png)
+| Desktop (1440px) | Mobile (390px) |
+| --- | --- |
+| ![Hero — desktop](./docs/screenshots/hero-desktop.png) | ![Hero — mobile](./docs/screenshots/hero-mobile.png) |
 
 ## Live site
 
@@ -43,6 +45,7 @@ Navigation and footer link to the real agency site ([convertor.se](https://conve
 - Custom scroll + touch hero without heavy animation libraries
 - Intersection-based reveals, accent underlines, and subtle parallax blobs
 - Accessible patterns (`prefers-reduced-motion`, semantic landmarks, external links)
+- Responsive hero with wrapped copy, capped ellipse scale, and touch-friendly scroll on small screens
 - Continuous deployment on Netlify from `main`
 
 ## Tech stack
@@ -90,10 +93,13 @@ Historical semver tags are mirrored to `deploy/v*` branches (see [`.github/workf
 
 ## Screenshots
 
-| View | |
+Captured from the current production build (June 2026) after the mobile hero layout and touch-scroll fixes.
+
+| View | Preview |
 | --- | --- |
 | Desktop hero | ![](./docs/screenshots/hero-desktop.png) |
-| Mobile hero | ![](./docs/screenshots/hero-mobile.png) |
+| Mobile hero (390×844) | ![](./docs/screenshots/hero-mobile.png) |
+| Full page (desktop) | ![](./docs/screenshots/full-page-desktop.png) |
 
 ## Repository naming
 
